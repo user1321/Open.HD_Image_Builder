@@ -7,11 +7,11 @@
 # >>>>>>>>>>[FREQUENCY FOR OPEN.HD]-- in MHz (See full Frequency List Below)
 # !!!***NOTE ABOUT RTL8812/14AU CARDS***!!!
 # REALTEK RTL8812/14AU CARDS DO NOT WORK WITH 2.4GHZ CHANNELS SO CHANGE FREQUENCY TO 5.8GHZ CHANNEL FROM LIST AT THE BOTTOM OF PAGE. 
-FREQ=2472
+FREQ=2312
 
 # >>>>>>>>>>[DATARATE] Lower settings yield higher range and vice versa.  
 # Below are the datarate settings for Legacy B/G and MCS "N" modes. 
-DATARATE=4
+DATARATE=2
 
 # 1 - 5.5   =    802.11b         1 - 6.5   =     MCS 0
 # 2 - 11    =    802.11b         2 - 13    =     MCS 1
@@ -33,7 +33,7 @@ UseLDPC=N
 DATARATE_SECONDARY_8812AU=2
 
 # >>>>>>>>>>[TXPOWER-AIR/GROUND]-- For Atheros AR9271 or RTL8812/14AU Cards ONLY
-TxPowerAir=54
+TxPowerAir=58
 TxPowerGround=54
 
 # >>>>>>>>>>[TXPOWER-RALINK]-- (Not confirmed Working]
@@ -71,7 +71,7 @@ DISPLAY_OSD=Y
 # >>>>>>>>>>[5/10/20Mhz BANDWIDTH SETTINGS]--Default 20mhz
 # !!!!!!! ATHEROS CARDS ONLY  !!!!!!!!!!!!!!!!!!!!!
 # Users can choose between 20mhz, 10mhz or 5mhz bandwidth at the expense of 1/4 or 1/2 of total available 
-# Datarate/Bitrate. Range can be increased significantly with 5/10mhz "Narrowband".
+# Datarate/Bitrate. RRange can be increased significantly with 5/10mhz "Narrowband".
 # ***Default @ 20mhz compatible with all Wireless cards. 5/10mhz Bandwidth options will result in
 # Bandwidth:5, 10 or 20.
 Bandwidth=20
@@ -91,7 +91,7 @@ VIDEO_BITRATE=auto
 # this to a lower value like 60% to avoid a delayed video stream.
 # On free channels you may set this to a higher value like 75% to get a higher
 # bitrate and thus image quality.
-BITRATE_PERCENT=65
+BITRATE_PERCENT=75
 
 # >>>>>>>>>>[CAMERA RESOLUTION]--
 # V1 cam: 1280x720: 30fps, 48fps. 1920x1080: 30fps
@@ -101,7 +101,7 @@ HEIGHT=720
 
 # >>>>>>>>>>[CAMERA FPS]--"48 default"
 # Choose between 30, 40, 48, 59.9, values above 60 are experimental
-FPS=48
+FPS=30
 
 # >>>>>>>>>>[KEYFRAME RATE]-- 
 # ***This is how often a "fresh-new" video frame is transmitted***
@@ -155,7 +155,7 @@ ETHERNET_HOTSPOT=N
 # >>>>>>>>>>[FORWARD RTP/RAW h.264 VIDEO TO PC/PHONE]
 # Set this to "raw" to forward a raw h264 stream to 2nd display devices (for QGC/FPV_VR app)
 # Set to "rtp" to forward RTP h264 stream 
-FORWARD_STREAM=rtp
+FORWARD_STREAM=raw
 
 # >>>>>>>>>>[UDP PORT SETUP]--
 # UDP port to send video stream to, set to 5000 for FPV_VR app or 5600 for Mission Planner/QGC
@@ -199,7 +199,7 @@ RC=mavlink
 # be automatically selected based on RSSI signal. 
 # ***Also Set for Bandwidth Switcher Function (Below)***
 #Ground RX card Primary
-PrimaryCardMAC=0
+PrimaryCardMAC=00156d826529
 
 # >>>>>>>>>>[TELEMETRY WBC/OTHER]--
 # wbc = use wifibroadcast as telemetry up/downlink
@@ -225,7 +225,7 @@ FC_TELEMETRY_BAUDRATE=115200
 
 # >>>>>>>>>>[EXTERNAL DEVICE SERIAL PORT BAUDRATE]--Serial port settings if using TELEMETRY_TRANSMISSION=external
 EXTERNAL_TELEMETRY_SERIALPORT_GROUND=/dev/serial0
-EXTERNAL_TELEMETRY_SERIALPORT_GROUND_BAUDRATE=57600
+EXTERNAL_TELEMETRY_SERIALPORT_GROUND_BAUDRATE=115200
 
 # >>>>>>>>>>[GROUND SERIAL PORT OUT ENABLE?]--Set to "Y" to enable output of telemetry to serialport on ground Pi
 # (for antenna tracker etc.)
@@ -234,7 +234,7 @@ ENABLE_SERIAL_TELEMETRY_OUTPUT=N
 # >>>>>>>>>>[GROUND SERIAL PORT/BAUDRATE OUT]-- 
 # Used for ground Pi telemetry output if TELEMETRY_OUTPUT=Y
 TELEMETRY_OUTPUT_SERIALPORT_GROUND=/dev/serial0
-TELEMETRY_OUTPUT_SERIALPORT_GROUND_BAUDRATE=57600
+TELEMETRY_OUTPUT_SERIALPORT_GROUND_BAUDRATE=115200
 
 # >>>>>>>>>>[MAVLINK FORWARDER] Choose "mavlink-routerd" (default) or "cmavnode"
 MAVLINK_FORWARDER=mavlink-routerd
@@ -259,12 +259,12 @@ DefaultCameraId=1
 ChannelToListen=16
 #
 Camera1ValueMin=700
-Camera1ValueMax=1400
+Camera1ValueMax=1300
 #
-Camera2ValueMin=1450
-Camera2ValueMax=2100
+Camera2ValueMin=1350
+Camera2ValueMax=1650
 #
-Camera3ValueMin=2150
+Camera3ValueMin=1700
 Camera3ValueMax=2200
 #
 Camera4ValueMin=2250
@@ -314,8 +314,8 @@ UplinkSpeed=11
 # MAKE SURE THAT YOUR MOST POWERFUL GROUND RECEIVER CARD MAC ADDRESS IS SET AS THE "PRIMARY RX/TX".
 # IsBandSwicherEnabled "0"=disabled "1"= enabled 
 # *Must have "Master-Mac address set above". 
-IsBandSwicherEnabled=0
-ChannelToListen2=8
+IsBandSwicherEnabled=1
+ChannelToListen2=6
 Band5Below=1200
 Band10ValueMin=1200
 Band10ValueMax=1650
@@ -362,7 +362,7 @@ SmartSyncControlVia=joystick
 
 # >>>>>>>>>>[SECONDARY IP/USB CAMERA SETTINGS]--
 # Values: No, IP, USB
-SecondaryCamera=No
+SecondaryCamera=IP
 
 # >>>>>>>>>>[SECONDARY PIP CAMERA SWITCHER RC CHANNEL]--
 # IP or USB secondary camera. To use "IsBandSwicherEnabled=1" must be enabled
@@ -372,6 +372,9 @@ SecondaryCamera=No
 #     Mode 3: Adroid phone only -  IP or USB camera. IPCameraHiRes (20MHz) , or auto bitrate = initial-bitrate=\$1 USBCamera. (20MHz, 10Mhz /2, 5Mhz /4). 
 #             (To use fixed: initial-bitrate=200000)
 ChannelIPCamera=7
+ChannelToListenRTPRecord=13
+SaveVideoOnUSBAfter=1700
+RTPSaveToUSBUrl="/usr/bin/gst-launch-1.0 -e rtspsrc location=\"rtsp://192.168.0.10:554/user=admin&password=&channel=1&stream=0.sdp\" ! rtph264depay ! h264parse ! mp4mux ! filesink location=/mnt/usbdisk/"
 
 # >>>>>>>>>>[OPTIONAL FLIR-USB CAMERA DRIVER SETUP]--
 # Values: Y N
@@ -409,7 +412,7 @@ ActivateChannel=0
 
 # >>>>>>>>>>[LORA RADIO]--Under Development
 # Values "0" or "1"
-Lora=0
+Lora=1
 
 # >>>>>>>>>>[Adjust LCD screen backlight using touchscreen]--
 AdjustLCDBacklight=Y
