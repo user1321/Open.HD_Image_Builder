@@ -18,8 +18,8 @@ sudo apt-get update
 
 # Install essentials
 DEBIAN_FRONTEND=noninteractive sudo apt-get -yq install python-pip
-pip install --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org pyudev
-pip install --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org sh
+sudo pip install --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org pyudev
+sudo pip install --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org sh
 DEBIAN_FRONTEND=noninteractive sudo apt-get -yq install aircrack-ng
 DEBIAN_FRONTEND=noninteractive sudo apt-get -yq install gnuplot
 DEBIAN_FRONTEND=noninteractive sudo apt-get -yq install dnsmasq
