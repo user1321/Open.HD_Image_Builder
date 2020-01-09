@@ -3,6 +3,22 @@
 sudo rm /etc/init.d/resize2fs_once
 sudo mkdir /wbc_tmp
 
+#Required to load different firmware depending on WiFi or broadcast mode. Done inside /root/.profile
+sudo rm -r /lib/firmware/ath9k_htc
+sudo ln -s /tmp/ath9k_htc /lib/firmware/
+
+#Configure Samba file server to run in RO mode.
+sudo cp -R /var/lib/samba /var/lib/samba_real
+sudo rm -rf /var/lib/samba
+sudo ln -s /tmp/samba/lib-samba /var/lib/samba
+sudo rm -r /var/cache/samba
+sudo ln -s /tmp/samba/cache-samba /var/cache/samba
+sudo rm -r /var/log/samba
+sudo ln -s /tmp/samba/log-samba /var/log/samba
+rm -rf /var/run/samba/
+sudo ln -s /tmp/samba/run/samba /var/run/samba
+sudo ln -s /tmp/samba/spool/samba /var/spool/samba
+
 #configure SSH permissions copied from overlay dir
 sudo chmod 644 /etc/ssh/moduli
 sudo chmod 644 /etc/ssh/ssh_config
