@@ -33,7 +33,7 @@ UseLDPC=N
 DATARATE_SECONDARY_8812AU=2
 
 # >>>>>>>>>>[TXPOWER-AIR/GROUND]-- For Atheros AR9271 or RTL8812/14AU Cards ONLY
-TxPowerAir=58
+TxPowerAir=60
 TxPowerGround=54
 
 # >>>>>>>>>>[TXPOWER-RALINK]-- (Not confirmed Working]
@@ -74,7 +74,7 @@ DISPLAY_OSD=Y
 # Datarate/Bitrate. RRange can be increased significantly with 5/10mhz "Narrowband".
 # ***Default @ 20mhz compatible with all Wireless cards. 5/10mhz Bandwidth options will result in
 # Bandwidth:5, 10 or 20.
-Bandwidth=20
+Bandwidth=10
 
 
 # ======================================================================================
@@ -376,6 +376,14 @@ ChannelToListenRTPRecord=13
 SaveVideoOnUSBAfter=1700
 RTPSaveToUSBUrl="/usr/bin/gst-launch-1.0 -e rtspsrc location=\"rtsp://192.168.0.10:554/user=admin&password=&channel=1&stream=0.sdp\" ! rtph264depay ! h264parse ! mp4mux ! filesink location=/mnt/usbdisk/"
 
+#map L293D chip to RPi
+ChannelToListenIRCut=15
+IsBCM=1
+EN1Pin=27
+IN1Pin=17
+IN2Pin=18
+
+
 # >>>>>>>>>>[OPTIONAL FLIR-USB CAMERA DRIVER SETUP]--
 # Values: Y N
 LoadFlirDriver=N
@@ -384,7 +392,9 @@ LoadFlirDriver=N
 # >>>>>>>>>>[IP/USB CAMERA PIPELINE OPTIONS]--*Uncomment corresponding per ip/usb camera type
 #USBCamera="gst-launch-1.0 uvch264src device=/dev/video0 initial-bitrate=\$1 average-bitrate=\$1 iframe-period=1000 name=src auto-start=true src.vidsrc ! queue ! video/x-h264,width=1280,height=720,framerate=30/1 ! h264parse ! rtph264pay ! udpsink host=127.0.0.1 port=5600"
 
-IPCameraHiRes="gst-launch-1.0 rtspsrc location=\"rtsp://192.168.0.10:554/user=admin&password=&channel=1&stream=0.sdp\" latency=0 ! udpsink port=5600 host=127.0.0.1"
+IPCameraHiRes="gst-launch-1.0 rtspsrc location=\"rtsp://192.168.0.10:554/user=admin&password=&channel=1&stream=1.sdp\" latency=0 ! udpsink port=5600 host=127.0.0.1"
+
+#IPCameraHiRes="gst-launch-1.0 rtspsrc location=\"rtsp://192.168.0.10:554/user=admin&password=&channel=1&stream=0.sdp\" latency=0 ! udpsink port=5600 host=127.0.0.1"
 IPCameraLowRes="gst-launch-1.0 rtspsrc location=\"rtsp://192.168.0.10:554/user=admin&password=&channel=1&stream=1.sdp\" latency=0 ! udpsink port=5600 host=127.0.0.1"
 
 # >>>>>>>>>>[FLIR CAMERA PIPELINE OPTIONS]--
