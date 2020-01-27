@@ -423,6 +423,11 @@ ActivateChannel=0
 # >>>>>>>>>>[LORA RADIO]--Under Development
 # Values "0" or "1"
 Lora=1
+#Channel to switch from OpenHD telemetry downlink to LoRa based (mavlink) telemetry downlink.
+#Uplink telemetry - OpenHD in both cases.
+#To use USB to TLL PL2303 dongle must be used: /etc/udev/rules.d - define /dev/ttyUSBLoraMavOut device name based on Vid, Pid.
+#Only for android app and RC via WiFi.
+ChannelToSwitchDownlink=14
 
 # >>>>>>>>>>[Adjust LCD screen backlight using touchscreen]--
 AdjustLCDBacklight=Y
