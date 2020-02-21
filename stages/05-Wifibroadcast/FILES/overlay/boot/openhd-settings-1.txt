@@ -126,6 +126,10 @@ VIDEO_TMP=memory
 # ======================================================================================
 #                   <GROUND STATION/PC/PHONE/TABLET INTERFACE CONFIG>
 # ======================================================================================
+# >>>>>>>>>>[Antenna Tracker]
+# Forward filtered mavlink messages to ground RPi UART port to reduce STM32 cpu load.
+# Forward only mavlink messages with ID : 0, 02, 24, 33
+ForwardMavlinkToUART=1
 
 # >>>>>>>>>>[HOTSPOT SOURCE]-- **THE EXTERNAL HOTSPOT IS CURRENTLY BROKEN, DON'T USE**
 # Set "internal" or MAC address of EXTERNAL wifi card
